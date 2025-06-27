@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include <iostream>
-using namespace std;
 
 int  main(int argc, char **argv)
 {
@@ -20,17 +19,17 @@ int  main(int argc, char **argv)
 	
   if (argc == 1)
   {
-    cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
   }
   else
   {
     for (i = 1; i < argc; i++)
 			{
 				for (j = 0; argv[i][j] != '\0'; j++)
-					cout << (char) toupper(argv[i][j]);
-				cout << " ";
+					std::cout << (char) std::toupper(argv[i][j]);
+				std::cout << " ";
 			}	
   }
-	cout << endl;
+	std::cout << std::endl;
 	return (0);
 }
