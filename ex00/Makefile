@@ -6,33 +6,28 @@
 #    By: apaula-l <apaula-l@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/26 21:50:03 by apaula-l          #+#    #+#              #
-#    Updated: 2025/06/26 22:06:58 by apaula-l         ###   ########.fr        #
+#    Updated: 2025/06/28 00:13:27 by apaula-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-SRC_DIR = ./src
-OBJ_DIR = ./build
+SRC = megaphone.cpp
 
-SRC = $(SRC_DIR)/megaphone.cpp
-OBJS = $(SRC:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+OBJS = $(SRC:.cpp=.o)
 
 CC = c++
-C++FLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
 RM = rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(C++FLAGS) -o $(NAME) $(OBJS)
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(C++FLAGS) -c $< -o $@
+	$(CC) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	$(RM) -r $(OBJ_DIR)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
